@@ -19,18 +19,18 @@ function Layout({ title, children }) {
             </Link>
             <div>
               <Link href="/cart" className="p-2">
-                Cart
+                Корзина
               </Link>
               <Link href="/login" className="p-2">
-                Login
+                Войти
               </Link>
             </div>
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <footer className="flex h-10 justify-between items-center shadow-inner px-4">
-          <p>Copyright &copy; 2022</p>
-          <p>e-shop &quot;ForChild&quot;</p>
+          <p>Все права защищены &copy; 2022</p>
+          <p>Электронный магазин &quot;ForChild&quot;</p>
         </footer>
       </div>
     </>
