@@ -28,8 +28,9 @@ function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner">
-          Copyright 2022 ForChild
+        <footer className="flex h-10 justify-between items-center shadow-inner px-4">
+          <p>Copyright &copy; 2022</p>
+          <p>e-shop &quot;ForChild&quot;</p>
         </footer>
       </div>
     </>
