@@ -2,7 +2,7 @@ import ProductItem from '@/components/ProductItem';
 import data from '@/utils/data';
 import Layout from '../components/Layout';
 
-function Home() {
+export default function Home() {
   return (
     <>
       <Layout title="Home page">
@@ -15,4 +15,3 @@ function Home() {
     </>
   );
 }
-export default Home;

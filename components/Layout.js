@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-function Layout({ title, children }) {
+export default function Layout({ title, children }) {
   return (
     <>
       <Head>
@@ -36,5 +36,3 @@ function Layout({ title, children }) {
     </>
   );
 }
-
-export default Layout;
