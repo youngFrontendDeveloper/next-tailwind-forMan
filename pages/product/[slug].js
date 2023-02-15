@@ -7,6 +7,7 @@ import React, { useContext } from 'react';
 import { Store } from '../../utils/Store';
 
 export default function ProductScreen() {
+  const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { query } = useRouter();
   const { slug } = query;
@@ -34,6 +35,7 @@ export default function ProductScreen() {
         quantity,
       },
     });
+    // router.push('/cart');
   };
 
   return (
