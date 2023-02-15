@@ -3,9 +3,11 @@ import data from '@/utils/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useContext } from 'react';
+import { Store } from '../../utils/Store';
 
 export default function ProductScreen() {
+  const { state, dispatch } = useContext(Store);
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((product) => product.slug === slug);
@@ -13,6 +15,26 @@ export default function ProductScreen() {
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  const addToCartHandler = () => {
+    const existItem = state.cart.cartItems.find(
+      (item) => item.slug === product.slug
+    );
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    if (product.countInStock < quantity) {
+      alert('Продукт закончился на складе');
+      return;
+    }
+
+    dispatch({
+      type: 'CART_ADD_ITEM',
+      payload: {
+        ...product,
+        quantity,
+      },
+    });
+  };
 
   return (
     <Layout title={product.name}>
@@ -64,7 +86,10 @@ export default function ProductScreen() {
                 {product.countInStock > 0 ? 'В наличии' : 'Нет в наличии'}
               </div>
             </div>
-            <button className="primary-button w-full">
+            <button
+              className="primary-button w-full"
+              onClick={addToCartHandler}
+            >
               Добавить в корзину
             </button>
           </div>
