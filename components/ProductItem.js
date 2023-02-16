@@ -10,8 +10,7 @@ export default function ProductItem({ product }) {
           src={product.image}
           alt={product.name}
           width={640}
-          height={640}
-          layout="responsive"
+          height={640}         
           loading="lazy"
           className="rounded shadow"
         />
