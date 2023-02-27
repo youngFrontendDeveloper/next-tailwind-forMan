@@ -1,9 +1,7 @@
 import axios from 'axios';
 import Layout from '@/components/Layout';
-// import data from '@/utils/data';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { Store } from '@/utils/Store';
 import { toast } from 'react-toastify';
@@ -12,10 +10,7 @@ import Product from '@/models/Product';
 
 export default function ProductScreen(props) {
   const { product } = props;
-  const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  // const { query } = useRouter();
-  // const { slug } = query;
 
   if (!product) {
     return <Layout title="Product not found">Продукт не найден</Layout>;

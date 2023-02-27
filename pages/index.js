@@ -1,7 +1,6 @@
 import ProductItem from '@/components/ProductItem';
-// import data from '@/utils/data';
 import { Store } from '@/utils/Store';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Layout from '../components/Layout';
 import axios from 'axios';
 import { toast } from 'react-toastify';
