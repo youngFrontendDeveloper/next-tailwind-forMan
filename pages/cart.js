@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { XCircleIcon } from '@heroicons/react/24/solid';
 import dynamic from 'next/dynamic';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function CartScreen() {
   const router = useRouter();
@@ -16,11 +18,17 @@ function CartScreen() {
 
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    toast.success('Корзина обновлена');
   };
 
-  const updateCartHandler = (item, qty) => {
+  const updateCartHandler = async (item, qty) => {
     const quantity = Number(qty);
+    const { data } = await axios.get(`/api/products/${item._id}`);
+    if (data.countInStock < quantity) {
+      return toast.error('Извините, продукт на складе закончился');
+    }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
+    toast.success('Корзина обновлена');
   };
 
   return (
