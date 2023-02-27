@@ -70,8 +70,9 @@ function CartScreen() {
                           width={50}
                           height={50}
                           loading="lazy"
+                          className="mr-5"
                         />
-                        &nbsp;
+
                         {item.name}
                       </Link>
                     </td>

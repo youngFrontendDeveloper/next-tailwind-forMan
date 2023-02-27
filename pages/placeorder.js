@@ -81,14 +81,18 @@ export default function PlaceOrderScreen() {
                 {shippingAddress.country}
               </div>
               <div>
-                <Link href="/shipping">Редактировать</Link>
+                <Link href="/shipping" className="text-sm italic">
+                  Редактировать
+                </Link>
               </div>
             </div>
             <div className="card  p-5">
               <h2 className="mb-2 text-lg">Метод оплаты</h2>
               <div>{paymentMethod}</div>
               <div>
-                <Link href="/payment">Редактировать</Link>
+                <Link href="/payment" className="text-sm italic">
+                  Редактировать
+                </Link>
               </div>
             </div>
             <div className="card overflow-x-auto p-5">
@@ -115,8 +119,9 @@ export default function PlaceOrderScreen() {
                             alt={item.name}
                             width={50}
                             height={50}
-                          ></Image>
-                          &nbsp;
+                            className="mr-5"
+                          />
+
                           {item.name}
                         </Link>
                       </td>
@@ -130,7 +135,9 @@ export default function PlaceOrderScreen() {
                 </tbody>
               </table>
               <div>
-                <Link href="/cart">Редактировать</Link>
+                <Link href="/cart" className="text-sm italic">
+                  Редактировать
+                </Link>
               </div>
             </div>
           </div>
