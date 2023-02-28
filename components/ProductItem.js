@@ -10,7 +10,7 @@ export default function ProductItem({ product, addToCartHandler }) {
           src={product.image}
           alt={product.name}
           width={640}
-          height={640}         
+          height={640}
           loading="lazy"
           className="rounded shadow"
         />
@@ -20,8 +20,12 @@ export default function ProductItem({ product, addToCartHandler }) {
           <h2 className="text-lg">{product.name}</h2>
         </Link>
         <p className="mb-2">{product.brand}</p>
-        <p>${product.price}</p>
-        <button className="primary-button" type="button" onClick={() => addToCartHandler(product)}>
+        <p>{product.price} руб.</p>
+        <button
+          className="primary-button"
+          type="button"
+          onClick={() => addToCartHandler(product)}
+        >
           Добавить в корзину
         </button>
       </div>

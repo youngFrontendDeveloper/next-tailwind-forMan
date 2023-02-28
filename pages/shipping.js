@@ -93,7 +93,7 @@ export default function ShippingScreen() {
             className="w-full"
             id="city"
             {...register('city', {
-              required: 'Please enter city',
+              required: 'Пожалуйста, введите город',
             })}
           />
           {errors.city && (
@@ -106,7 +106,7 @@ export default function ShippingScreen() {
             className="w-full"
             id="postalCode"
             {...register('postalCode', {
-              required: 'Please enter postal code',
+              required: 'Пожалуйста, введите почтовый индекс',
             })}
           />
           {errors.postalCode && (
@@ -119,7 +119,7 @@ export default function ShippingScreen() {
             className="w-full"
             id="country"
             {...register('country', {
-              required: 'Please enter country',
+              required: 'Пожалуйста, введите страну',
             })}
           />
           {errors.country && (
