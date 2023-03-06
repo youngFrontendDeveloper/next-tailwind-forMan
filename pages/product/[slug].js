@@ -7,13 +7,21 @@ import { Store } from '@/utils/Store';
 import { toast } from 'react-toastify';
 import db from '@/utils/db';
 import Product from '@/models/Product';
+import ButtonAddToCart from '@/components/Button';
 
 export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
 
   if (!product) {
-    return <Layout title="Product not found">Продукт не найден</Layout>;
+    return (
+      <Layout title="Product not found">
+        <p>Продукт не найден</p>
+        <Link href="/" className="text-sm italic">
+          Вернуться к продуктам
+        </Link>
+      </Layout>
+    );
   }
 
   const addToCartHandler = async () => {
@@ -34,6 +42,7 @@ export default function ProductScreen(props) {
         quantity,
       },
     });
+    toast.success('Корзина обновлена');
   };
 
   return (
@@ -44,7 +53,7 @@ export default function ProductScreen(props) {
         </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 mb-3">
           <Image
             src={product.image}
             alt={product.name}
@@ -53,22 +62,31 @@ export default function ProductScreen(props) {
             loading="lazy"
           />
         </div>
-        <div>
+        <div className="mb-3">
           <ul>
             <li>
-              <h1 className="text-lg font-bold">{product.name}</h1>
+              <h1 className="text-lg font-[500] text-green-600">
+                {product.name}
+              </h1>
             </li>
             <li>
               {' '}
-              <span className="italic"> Категория:</span> {product.category}{' '}
+              <span className="text-sm italic mr-3 font-[500]">
+                {' '}
+                Категория:
+              </span>{' '}
+              {product.category}{' '}
             </li>
             <li>
-              <span className="italic"> Бранд:</span> {product.brand}
+              <span className="text-sm italic mr-3 font-[500]"> Бренд:</span>{' '}
+              {product.brand}
             </li>
             <li>
-              <span className="italic"> Описание:</span> {product.description}
+              <span className="text-sm italic mr-3 font-[500]"> Описание:</span>{' '}
+              {product.description}
             </li>
             <li>
+              <span className="text-sm italic mr-3 font-[500]"> Рейтинг:</span>{' '}
               {product.rating} из {product.numReviews} просмотров
             </li>
           </ul>
@@ -76,21 +94,20 @@ export default function ProductScreen(props) {
         <div>
           <div className="card p-5">
             <div className="mb-2 flex justify-between">
-              <div className="font-bold">Цена</div>
+              <div className="font-[500]">Цена</div>
               <div>{product.price} руб.</div>
             </div>
             <div className="mb-2 flex justify-between">
-              <div className="font-bold">Статус</div>
+              <div className="font-[500]">Статус</div>
               <div>
                 {product.countInStock > 0 ? 'В наличии' : 'Нет в наличии'}
               </div>
             </div>
-            <button
-              className="primary-button w-full"
-              onClick={addToCartHandler}
-            >
-              Добавить в корзину
-            </button>
+            <ButtonAddToCart
+              action={addToCartHandler}
+              product={product}
+              text="Добавить в корзину"
+            />
           </div>
         </div>
       </div>

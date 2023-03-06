@@ -6,13 +6,15 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import db from '@/utils/db';
 import Product from '@/models/Product';
+import MainCarousel from '@/components/Carousel';
 
-export default function Home({ products }) {
+export default function Home({ products, featuredProducts }) {
+  console.log(featuredProducts);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
-  // console.log(products);
+  console.log(products);
 
-  const addToCartHandler = async (product) => {
+  const addToCartHandler = async (product, featuredProducts) => {
     const existItem = cart.cartItems.find((item) => item.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
@@ -34,6 +36,10 @@ export default function Home({ products }) {
   return (
     <>
       <Layout title="Home page">
+        <MainCarousel featuredProducts={featuredProducts} />
+        <h2 className="h2 my-4 font-bold text-green-700 text-[30px]">
+          Товары для мужчин
+        </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
             <ProductItem
@@ -51,9 +57,12 @@ export default function Home({ products }) {
 export async function getServerSideProps() {
   await db.connect();
   const products = await Product.find().lean();
-  console.log(products);
+  const featuredProducts = await Product.find({ isFeatured: true }).lean();
+
+  await db.disconnect();
   return {
     props: {
+      featuredProducts: featuredProducts.map(db.convertDocToObj),
       products: products.map(db.convertDocToObj),
     },
   };

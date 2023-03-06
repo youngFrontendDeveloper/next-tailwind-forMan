@@ -1,3 +1,4 @@
+import Button from '@/components/Button';
 import CheckoutWizard from '@/components/CheckoutWizard';
 import Layout from '@/components/Layout';
 import { Store } from '@/utils/Store';

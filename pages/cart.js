@@ -8,6 +8,7 @@ import { XCircleIcon } from '@heroicons/react/24/solid';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Button from '@/components/Button';
 
 function CartScreen() {
   const router = useRouter();
@@ -16,6 +17,7 @@ function CartScreen() {
     cart: { cartItems },
   } = state;
 
+  console.log(cartItems);
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     toast.success('Корзина обновлена');
@@ -43,17 +45,21 @@ function CartScreen() {
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
-          <div className="overflow-x-auto md:col-span-3">
+          <div className="overflow-x-auto md:col-span-3 mb-3">
             <Link href="/" className="text-sm italic">
               Перейти к покупкам
             </Link>
             <table className="min-w-full ">
               <thead className="border-b">
                 <tr>
-                  <th className="p-5 text-left">Название товара</th>
-                  <th className="p-5 text-right">Количество</th>
-                  <th className="p-5 text-right">Цена</th>
-                  <th className="p-5">Удалить товар</th>
+                  <th className="p-5 text-left text-sm md:text-lg">
+                    Название товара
+                  </th>
+                  <th className="p-5 text-right text-sm md:text-lg">
+                    Количество
+                  </th>
+                  <th className="p-5 text-right text-sm md:text-lg">Цена</th>
+                  <th className="p-5 text-sm md:text-lg">Удалить товар</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,7 +79,7 @@ function CartScreen() {
                           className="mr-5"
                         />
 
-                        {item.name}
+                        <span className="text-sm md:text-lg">{item.name}</span>
                       </Link>
                     </td>
                     <td className="p-5 text-right">
@@ -105,17 +111,24 @@ function CartScreen() {
             <ul>
               <li>
                 <div className="pb-3 text-xl">
-                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) :{' '}
+                  <span className="mr-3 font-[500]">Итого:</span>
+                  {/* {cartItems.reduce((a, c) => a + c.quantity, 0)} товара
+                  на сумму{' '} */}
                   {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)} руб.
                 </div>
               </li>
               <li>
-                <button
+                {/* <button
                   onClick={() => router.push('login?redirect=/shipping')}
                   className="primary-button w-full"
                 >
                   Оформление покупок
-                </button>
+                </button> */}
+                <Button
+                  action={() => router.push('login?redirect=/shipping')}
+                  product=""
+                  text="Оформление покупок"
+                />
               </li>
             </ul>
           </div>

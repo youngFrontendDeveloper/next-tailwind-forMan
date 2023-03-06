@@ -40,6 +40,20 @@
     "description": "Популярная приталенная рубашка "
   },
   {
+    "name": "Рубашка с коротким рукавом",
+    "slug": "short-sleeve-shirt",
+    "category": "Рубашки",
+    "image": "/images/banner2.jpg",
+    "price": 175,
+    "brand": "Casely",
+    "rating": 2.4,
+    "numReviews": 14,
+    "countInStock": 10,
+    "description": "Стильная мужская рубашка с коротким рукавом в крупную клетку",
+    "isFeatured": true,
+    "banner": "/images/banner2.jpg"
+  },
+  {
     "name": "Брюки для гольфа",
     "slug": "golf-pants",
     "category": "Брюки",
@@ -74,5 +88,19 @@
     "numReviews": 14,
     "countInStock": 20,
     "description": "Популярные брюки классического покроя"
+  },
+  {
+    "name": "Мужской свитшот",
+    "slug": "SWEATSHIRT",
+    "category": "Свитера",
+    "image": "/images/banner1.jpg",
+    "price": 75,
+    "brand": "Casely",
+    "rating": 2.4,
+    "numReviews": 14,
+    "countInStock": 20,
+    "description": "Мужской свитшот с лампасамси на рукавах",
+    "isFeatured": true,
+    "banner": "/images/banner1.jpg"
   }
-];
+]
