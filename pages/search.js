@@ -98,6 +98,7 @@ export default function Search(props) {
   const { state, dispatch } = useContext(Store);
 
   console.log(query);
+
   const addToCartHandler = async (product) => {
     const existItem = state.cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -247,12 +248,35 @@ export async function getServerSideProps({ query }) {
   const queryFilter =
     searchQuery && searchQuery !== 'all'
       ? {
-          name: {
-            $regex: searchQuery,
-            $options: 'i',
-          },
+          $or: [
+            {
+              name: {
+                $regex: searchQuery,
+                $options: 'i',
+              },
+            },
+            {
+              slug: {
+                $regex: searchQuery,
+                $options: 'i',
+              },
+            },
+            {
+              brand: {
+                $regex: searchQuery,
+                $options: 'i',
+              },
+            },
+            {
+              description: {
+                $regex: searchQuery,
+                $options: 'i',
+              },
+            },
+          ],
         }
       : {};
+
   const categoryFilter = category && category !== 'all' ? { category } : {};
   const brandFilter = brand && brand !== 'all' ? { brand } : {};
   const ratingFilter =

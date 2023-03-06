@@ -10,8 +10,7 @@ export default function SearchForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!query) return toast.error('Введите товар');
-    // router.push(`/search?query=${query}`);
-    router.push(`/search`);
+    router.push(`/search?query=${query}`);
   };
 
   return (
