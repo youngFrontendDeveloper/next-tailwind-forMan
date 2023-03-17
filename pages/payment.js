@@ -1,4 +1,3 @@
-import Button from '@/components/Button';
 import CheckoutWizard from '@/components/CheckoutWizard';
 import Layout from '@/components/Layout';
 import { Store } from '@/utils/Store';
@@ -40,7 +39,11 @@ export default function PaymentScreen() {
   }, [paymentMethod, router, shippingAddress.address]);
 
   return (
-    <Layout title="Payment Method">
+    <Layout
+      title="Payment Method"
+      description="Страница выборы способа оплаты"
+      keywords="метод оплаты, выбрать способ оплаты"
+    >
       <CheckoutWizard activeStep={2} />
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
         <h1 className="mb-4 text-xl">Метод оплаты:</h1>

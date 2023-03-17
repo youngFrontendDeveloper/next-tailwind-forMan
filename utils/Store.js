@@ -7,6 +7,7 @@ const initialState = {
   cart: Cookies.get('cart')
     ? JSON.parse(Cookies.get('cart'))
     : { cartItems: [], shippingAddress: {}, paymentMethod: '' },
+  pathOfPage: '/',
 };
 
 function reducer(state, action) {
@@ -78,6 +79,12 @@ function reducer(state, action) {
           ...state.cart,
           paymentMethod: action.payload,
         },
+      };
+
+    case 'PATH_SUCCESS':
+      return {
+        ...state,
+        pathOfPage: action.payload,
       };
     default:
       return state;
