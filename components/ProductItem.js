@@ -8,20 +8,22 @@ import RatingStars from "./RatingStars";
 import { useTranslation } from "next-i18next";
 
 export default function ProductItem({ product, index, addToCartHandler, locale }) {
-  const [ editRating, setEditRating ] = useState( true );
-  const [ rating, setRating ] = useState( product.rating );
-  const { data: session } = useSession();
+  // const [ editRating, setEditRating ] = useState( true );
+  // const [ rating, setRating ] = useState( product.rating );
+  // const { data: session } = useSession();
   const { t } = useTranslation( "common" );
 
-  const ratingChanged = (newRating) => {
-    if( session?.user ) {
-      setRating( rating + newRating );
-    } else {
-      return toast.error( "Войдите в систему" );
-    }
-    console.log( editRating );
-    setEditRating( false );
-  };
+  // const ratingChanged = () => {
+  //
+  //   setRating()
+    // if( session?.user ) {
+    //   setRating( rating + newRating );
+    // } else {
+    //   return toast.error( "Войдите в систему" );
+    // }
+    // console.log( editRating );
+    // setEditRating( false );
+  // };
 
   return (
     <div className="card">
@@ -45,9 +47,9 @@ export default function ProductItem({ product, index, addToCartHandler, locale }
         <p className="mb-2 text-sm italic ">{ product.brand }</p>
         <RatingStars
           size={ 20 }
-          rating={ rating }
+          rating={ product.totalRating }
           editRating={ false }
-          ratingChanged={ ratingChanged }
+          // ratingChanged={ ratingChanged }
         />
 
         <p className="mb-3 font-[500]">{

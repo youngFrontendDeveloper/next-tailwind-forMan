@@ -20,7 +20,6 @@ export default function ProductScreen(props) {
   const { state, dispatch } = useContext( Store );
   const { t } = useTranslation( "common" );
 
-
   if( !product ) {
     return (
       <Layout title="Product not found">
@@ -93,7 +92,7 @@ export default function ProductScreen(props) {
               // product.description.slice( 0, 50 ) + "..."
             }
           </div>
-          <RatingStars rating={ product.rating } editRating={ false } half={ true } />
+          <RatingStars rating={ product.totalRating } editRating={ false } half={ true } />
           {/* <div> */ }
           {/* <span className="text-sm italic mr-3 font-[500]"> Рейтинг:</span>{' '} */ }
           {/* {product.rating} из {product.numReviews} просмотров */ }
