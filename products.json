@@ -7,6 +7,18 @@
     "price": 70,
     "brand": "Nike",
     "rating": 4.5,
+    "userRatings": [
+      {
+        "user": "Василий",
+        "rating": 5,
+        "feedback": "Очень хорошая рубашка, отлично скрывает небольшой животик"
+      },
+      {
+        "user": "Нина",
+        "rating": 4.5,
+        "feedback": "Покупала мужу рубашку на день рождения, ему очень понравилась"
+      }
+    ],
     "numReviews": 8,
     "countInStock": 20,
     "description": "Популярная рубашка свободного покроя",
@@ -21,6 +33,18 @@
     "price": 80,
     "brand": "Adidas",
     "rating": 3.2,
+    "userRatings": [
+      {
+        "user": "Мефодий",
+        "rating": 2.5,
+        "feedback": "Оказалась узкой. Сразу пошла по швам"
+      },
+      {
+        "user": "Агата",
+        "rating": 4.5,
+        "feedback": "Очень хорошая рубашка.Приятная ткань."
+      }
+    ],
     "numReviews": 10,
     "countInStock": 20,
     "description": "Популярная рубашка облегающего покроя",
@@ -35,6 +59,18 @@
     "price": 90,
     "brand": "Raymond",
     "rating": 4.5,
+    "userRatings": [
+      {
+        "user": "Михаил",
+        "rating": 5,
+        "feedback": "Рубашка стильная."
+      },
+      {
+        "user": "Феодора",
+        "rating": 1.5,
+        "feedback": "Так себе, ничего выдающегося"
+      }
+    ],
     "numReviews": 3,
     "countInStock": 20,
     "description": "Популярная приталенная рубашка "
@@ -47,6 +83,14 @@
     "price": 175,
     "brand": "Casely",
     "rating": 2.4,
+    "userRatings": [
+      {
+        "user": "Агафен",
+        "rating": 5,
+        "feedback": "Отличная рубашка в жаркую погоду"
+      },
+      { "user": "Мартын", "rating": 4.5, "feedback": "Очень хорошая рубашка" }
+    ],
     "numReviews": 14,
     "countInStock": 10,
     "description": "Стильная мужская рубашка с коротким рукавом в крупную клетку",
@@ -61,6 +105,14 @@
     "price": 90,
     "brand": "Oliver",
     "rating": 2.9,
+    "userRatings": [
+      {
+        "user": "Феодосия",
+        "rating": 2.5,
+        "feedback": "Узкие, на ткани сразу видна пыль"
+      },
+      { "user": "Марфа", "rating": 5, "feedback": "" }
+    ],
     "numReviews": 13,
     "countInStock": 20,
     "description": "Шикарно выглядящие брюки"
@@ -73,6 +125,14 @@
     "price": 95,
     "brand": "Zara",
     "rating": 3.5,
+    "userRatings": [
+      {
+        "user": "Клара",
+        "rating": 5,
+        "feedback": "Стильные, выглядят очень круто"
+      },
+      { "user": "Фекла", "rating": 4, "feedback": "Нормальные" }
+    ],
     "numReviews": 7,
     "countInStock": 20,
     "description": "Популярные брюки облегающего покроя"
@@ -85,6 +145,18 @@
     "price": 75,
     "brand": "Casely",
     "rating": 2.4,
+    "userRatings": [
+      {
+        "user": "Василиса",
+        "rating": 5,
+        "feedback": "Классика - она всегда классика"
+      },
+      {
+        "user": "Нинель",
+        "rating": 4.5,
+        "feedback": "Выглядят стильно, хорошая ткань"
+      }
+    ],
     "numReviews": 14,
     "countInStock": 20,
     "description": "Популярные брюки классического покроя"
@@ -97,6 +169,19 @@
     "price": 75,
     "brand": "Casely",
     "rating": 2.4,
+    "userRatings": [
+      {
+        "user": "Агафен",
+        "rating": 3.5,
+        "feedback": "Очень круто смотрится, девченки без ума"
+      },
+      {
+        "user": "Агрипина",
+        "rating": 4,
+        "feedback": "Приятная ткань, приятный цвет"
+      },
+      { "user": "Нинель", "rating": 4.5, "feedback": "Купила парню в подарок" }
+    ],
     "numReviews": 14,
     "countInStock": 20,
     "description": "Мужской свитшот с лампасамси на рукавах",

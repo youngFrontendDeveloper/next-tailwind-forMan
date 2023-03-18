@@ -41,7 +41,11 @@ function OrderHistoryScreen() {
   }, []);
 
   return (
-    <Layout title="Order history">
+    <Layout
+      title="Order history"
+      description="Страница истории заказов"
+      keywords="мои заказы, история заказов, "
+    >
       <h1 className="mb-4 text-xl">Истрия заказов</h1>
       {loading ? (
         <div>Loading...</div>

@@ -165,7 +165,7 @@ export default function AdminProdcutsScreen() {
                         <td className=" p-5 ">{product.price} руб.</td>
                         <td className=" p-5 ">{product.category}</td>
                         <td className=" p-5 ">{product.countInStock}</td>
-                        <td className=" p-5 ">{product.rating}</td>
+                        <td className=" p-5 ">{product.totalRating}</td>
                         <td className="p-5 flex gap-1">
                           <Link
                             href={`/admin/product/${product._id}`}

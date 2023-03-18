@@ -7,8 +7,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import CheckoutWizard from '../components/CheckoutWizard';
 import Layout from '../components/Layout';
-import { getError } from '../utils/error';
-import { Store } from '../utils/Store';
+import { getError } from '@/utils/error';
+import { Store } from '@/utils/Store';
 
 export default function PlaceOrderScreen() {
   const { state, dispatch } = useContext(Store);
@@ -63,7 +63,11 @@ export default function PlaceOrderScreen() {
   };
 
   return (
-    <Layout title="Place Order">
+    <Layout
+      title="Place Order"
+      description="Страница оплаты товара"
+      keywords="оформить заказ, адрес доставки, способ оплаты, заказанные товары"
+    >
       <CheckoutWizard activeStep={3} />
       <h1 className="mb-4 text-xl">Оформление заказа</h1>
       {cartItems.length === 0 ? (
