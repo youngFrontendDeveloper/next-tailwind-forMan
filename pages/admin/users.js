@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
-import { getError } from '../../utils/error';
+import { getError } from '@/utils/error';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -53,9 +53,9 @@ function AdminUsersScreen() {
   }, [successDelete]);
 
   const deleteHandler = async (userId) => {
-    if (!window.confirm('Are you sure?')) {
-      return;
-    }
+    // if (!window.confirm('Are you sure?')) {
+    //   return;
+    // }
     try {
       dispatch({ type: 'DELETE_REQUEST' });
       await axios.delete(`/api/admin/users/${userId}`);

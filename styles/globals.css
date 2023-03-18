@@ -14,16 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 a {
   @apply text-blue-600 hover:text-blue-800;
 }
@@ -70,7 +60,19 @@ textarea {
 .alert-success {
   @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
 }
+.carousel-slider {
+  z-index: -2!important;
+}
 
 .control-arrow {
   height: 60px;
+}
+
+.padding {
+  padding: 7px;
+}
+
+.review {
+  border: 1px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0);
 }

@@ -1,24 +1,29 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import Layout from '../components/Layout';
-import { getError } from '../utils/error';
+import { getError } from '@/utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { Store } from '@/utils/Store';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
   const router = useRouter();
-  const { redirect } = router.query;
-  console.log(redirect);
-
+  const { state, dispatch } = useContext(Store);
+  console.log(state);
+  const path = state.pathOfPage;
   useEffect(() => {
     if (session?.user) {
-      router.push(redirect || '/');
+      router.push(path || '/');
+      setTimeout(() => {
+        dispatch({ type: 'PATH_SUCCESS', payload: '/' });
+      }, 2000);
     }
-  }, [router, session, redirect]);
+  }, [router, session, path, dispatch]);
+  console.log(state);
 
   const {
     handleSubmit,
@@ -136,9 +141,7 @@ export default function LoginScreen() {
           <button className="primary-button">Зарегистрироваться</button>
         </div>
         <div className="mb-4">
-          {/* Don&apos;t have an account? &nbsp; */}
           Уже есть аккаунт?
-          {/* <Link href={`/register?redirect=${redirect || '/'}`}>Войти</Link> */}
           <Link href="/login"> &nbsp;Войти</Link>
         </div>
       </form>

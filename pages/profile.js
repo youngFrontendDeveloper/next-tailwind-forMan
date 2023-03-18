@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { getError } from '../utils/error';
+import { getError } from '@/utils/error';
 import axios from 'axios';
 import Layout from '../components/Layout';
 
@@ -44,12 +44,16 @@ export default function ProfileScreen() {
   };
 
   return (
-    <Layout title="Profile">
+    <Layout
+      title="Profile"
+      description="Страница профиля пользователя"
+      keywords="профиль, страница пользователя, profile of user, обновить профиль пользователя"
+    >
       <form
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Update Profile</h1>
+        <h1 className="mb-4 text-xl">Обновить профиль</h1>
 
         <div className="mb-4">
           <label htmlFor="name">Имя</label>
