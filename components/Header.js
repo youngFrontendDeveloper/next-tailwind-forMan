@@ -29,9 +29,9 @@ export default function Header() {
   };
 
   return (
-    <header className="h-12 drop-shadow-md">
+    <header className="h-16 shadow">
       <div className="container h-full mx-auto">
-        <nav className="flex items-center justify-between gap-4 h-full px-4">
+        <nav className="flex flex-wrap md:flex-nowrap items-center justify-between gap-4 h-full px-4">
           <Logo />
           <SearchForm />
           <div className="flex item-center gap-3">

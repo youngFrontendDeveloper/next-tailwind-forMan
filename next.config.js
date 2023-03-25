@@ -7,28 +7,7 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
   },
   i18n,
-  // i18n: {
-  //   locales: ['ru', 'en', ],
-  //   defaultLocale: 'ru',
-  // },
-  // domains: [
-  //   {
-  //     domain: 'http://localhost:3000/',
-  //     defaultLocale: 'ru',
-  //   },
-  //   {
-  //     domain: 'http://localhost:3000/en',
-  //     defaultLocale: 'en',
-  //   },
-  //   {
-  //     domain: 'http://localhost:3000/fr',
-  //     defaultLocale: 'fr',
-  //   },
-  //   {
-  //     domain: 'http://localhost:3000/ja',
-  //     defaultLocale: 'ja',
-  //   },
-  // ],
+  
 };
 
 module.exports = nextConfig;

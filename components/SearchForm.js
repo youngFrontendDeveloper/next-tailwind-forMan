@@ -18,7 +18,7 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={submitHandler}
-      className="mx-auto  hidden justify-center sm:flex w-full max-w-[600px]"
+      className="mx-auto justify-center sm:flex w-full md:max-w-[600px]"
     >
       <input
         type="text"

@@ -1,31 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import ButtonAddToCart from "./ButtonAddToCart";
-import { useSession } from "next-auth/react";
-import { toast } from "react-toastify";
 import RatingStars from "./RatingStars";
 import { useTranslation } from "next-i18next";
 
 export default function ProductItem({ product, index, addToCartHandler, locale }) {
-  // const [ editRating, setEditRating ] = useState( true );
-  // const [ rating, setRating ] = useState( product.rating );
-  // const { data: session } = useSession();
+
   const { t } = useTranslation( "common" );
 
-  // const ratingChanged = () => {
-  //
-  //   setRating()
-    // if( session?.user ) {
-    //   setRating( rating + newRating );
-    // } else {
-    //   return toast.error( "Войдите в систему" );
-    // }
-    // console.log( editRating );
-    // setEditRating( false );
-  // };
-
-  return (
+   return (
     <div className="card">
       <Link href={ `/product/${ product.slug }` } className="grow-0">
         <Image
@@ -49,7 +33,6 @@ export default function ProductItem({ product, index, addToCartHandler, locale }
           size={ 20 }
           rating={ product.totalRating }
           editRating={ false }
-          // ratingChanged={ ratingChanged }
         />
 
         <p className="mb-3 font-[500]">{

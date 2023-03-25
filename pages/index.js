@@ -9,9 +9,10 @@ import Product from "@/models/Product";
 import MainCarousel from "@/components/Carousel";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"; // Перевод страницы с помощью next-i18next
 import { useTranslation } from "next-i18next";
+import SocialNetwork from "@/components/SocialNetwork";
 
 
-export default function Home({ products, featuredProducts, locale}) {
+export default function Home({ products, featuredProducts, locale }) {
   const { state, dispatch } = useContext( Store );
   const { cart } = state;
   const { t } = useTranslation( "common" );
@@ -45,19 +46,26 @@ export default function Home({ products, featuredProducts, locale}) {
         <MainCarousel featuredProducts={ featuredProducts } />
 
         <h2 className="h2 my-4 font-bold text-green-700 text-[30px]">
-          { t( "title" ) }
+          { t( "title" )
+            // Товары для мужчин
+          }
         </h2>
+        <p><a href="/price.docx" download className="text-sm italic">Скачать прайс формате .doc (14 kb)</a></p>
+        <p><a href="/price.xlsx" download className="text-sm italic">Скачать прайс формате .exel (34kb)</a></p>
+        <p className="mb-3"><a href="/price.pdf" download className="text-sm italic">Скачать прайс формате .pdf
+          (39kb)</a></p>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4">
           { products.map( (product, index) => (
             <ProductItem
               key={ product.slug }
               product={ product }
-              index={index}
-              locale={locale}
+              index={ index }
+              locale={ locale }
               addToCartHandler={ addToCartHandler }
             />
           ) ) }
         </div>
+        <SocialNetwork />
       </Layout>
     </>
   );
@@ -72,7 +80,7 @@ export async function getServerSideProps({ locale }) {
   return {
     props: {
       locale,
-      ...( await serverSideTranslations( locale, [ "common", "footer", "product", "ProductScreen", 'cart' ] ) ),
+      ...( await serverSideTranslations( locale, [ "common", "footer", "product", "ProductScreen", "cart" ] ) ),
       featuredProducts: featuredProducts.map( db.convertDocToObj ),
       products: products.map( db.convertDocToObj ),
     },

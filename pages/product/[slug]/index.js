@@ -65,7 +65,7 @@ export default function ProductScreen(props) {
         </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
-        <div className="md:col-span-2 mb-3">
+        <div className="md:col-span-2 mb-2">
           <Image
             src={ product.image }
             alt={ product.name }
@@ -88,7 +88,7 @@ export default function ProductScreen(props) {
               {/*Описание:*/ }
             </span>{ " " }
             {
-              (t( `productDescriptions`, { returnObjects: true } )[ index ]).slice(0,50) + "..."
+              ( t( `productDescriptions`, { returnObjects: true } )[ index ] ).slice( 0, 50 ) + "..."
               // product.description.slice( 0, 50 ) + "..."
             }
           </div>
@@ -162,7 +162,7 @@ export default function ProductScreen(props) {
               {/*Перейти к отзывам*/ }
             </Link>
           </div>
-          <div>
+          <div className="mb-4">
             <Link
               href={ `/product/${ product.slug }/writereview` }
               className="primary-button text-[16px] text-green-600 font-[500]"
@@ -186,7 +186,9 @@ export async function getServerSideProps(context) {
   const data = await Product.find().lean();
   const products = data.map( db.convertDocToObj );
   const product = await Product.findOne( { slug } ).lean();
-  const index = products.map(item =>{return item.slug}).indexOf( slug );
+  const index = products.map( item => {
+    return item.slug;
+  } ).indexOf( slug );
 
   await db.disconnect();
 
