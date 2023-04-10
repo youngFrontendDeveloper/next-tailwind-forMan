@@ -104,11 +104,11 @@ export default function WritereviewScreen({ product }) {
       <Link href={ `/product/${ product.slug }` } className="text-sm italic">
         Вернуться к описанию товара
       </Link>
-      <h1>
+      <h1  className="h2 my-4 font-bold text-green-700 text-[30px]">
         Отзыв о товаре <span>&quot;{ product.name }&quot;</span>
       </h1>
-      <div>
-        <span> Общая оценка</span>
+      <div className="mb-5">
+        <span> Общая оценка:</span>
         <RatingStars
           rating={ newRatingValue }
           editRating={ true }
@@ -119,9 +119,9 @@ export default function WritereviewScreen({ product }) {
       </div>
       <form
         onSubmit={ handleSubmit( submitHandler ) }
-        className="mx-auto max-w-screen-md"
+        className="mx-auto mb-5 max-w-screen-md"
       >
-        <label htmlFor="review">Отзыв</label>
+        <label htmlFor="review" className="block mb-4">Отзыв:</label>
         <textarea
           name="review"
           id="review"
@@ -131,6 +131,7 @@ export default function WritereviewScreen({ product }) {
           { ...register( "review", {
             required: " Пожалуйста, заполните это поле",
           } ) }
+          className="block mb-5"
         />
         { errors.review && (
           <div className="text-red-500"> { errors.review.message }</div>

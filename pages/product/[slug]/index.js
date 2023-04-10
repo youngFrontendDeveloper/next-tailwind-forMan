@@ -119,6 +119,7 @@ export default function ProductScreen(props) {
             <ButtonAddToCart
               action={ addToCartHandler }
               product={ product }
+              index={index}
               text={ t( "addToCart" ) }
               // text="Добавить в корзину"
             />

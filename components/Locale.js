@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-// import i18next from 'i18next'
+import styles from "@/styles/Nav.module.css"
 
 const language = [
   { loc: "ru", lan: "Русский" },
@@ -27,8 +27,10 @@ export default function Locale() {
 
   return (
     <>
-      <div className="w-[40px] relative hover:cursor-pointer" onClick={ ChangeLanguageHandler } title="Сменить язык">
-        <Image src="/images/planet.svg" alt={t('chooseLanguage')} width={ 40 } height={ 40 } />
+      <div
+        className={`${styles.locale} w-[30px] relative justify-self-end hover:cursor-pointer`}
+           onClick={ ChangeLanguageHandler } title="Сменить язык">
+        <Image src="/images/locale-icon.svg" alt={t('chooseLanguage')} width={ 30 } height={ 30 } />
       </div>
       {
         isShow &&

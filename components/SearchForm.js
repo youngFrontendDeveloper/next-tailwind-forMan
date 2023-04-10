@@ -3,6 +3,7 @@ import Image from 'next/image.js';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { useTranslation } from "next-i18next";
+import styles from "@/styles/Nav.module.css"
 
 export default function SearchForm() {
   const [query, setQuery] = useState();
@@ -18,17 +19,17 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={submitHandler}
-      className="mx-auto justify-center sm:flex w-full md:max-w-[600px]"
+      className={` ${styles.search} flex mx-auto justify-between w-full lg:max-w-[600px]`}
     >
       <input
         type="text"
         onChange={(e) => setQuery(e.target.value)}
-        className="rounded-tr-none rounded-br-none p-1 text-sm focus:ring-0 w-full"
+        className="rounded-tr-none rounded-br-none p-1 text-sm focus:ring-0 grow"
         placeholder={t("search")}
         // placeholder="Что ищем?.."
       />
       <button
-        className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+        className="w-[30px] rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
         type="submit"
         id="button-addon"
       >

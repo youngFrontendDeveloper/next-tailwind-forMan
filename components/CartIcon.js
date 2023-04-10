@@ -1,10 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import styles from "@/styles/Nav.module.css"
 
 export default function CartIcon({ cartItemsCount }) {
   return (
-    <Link href="/cart" className="min-w-[40px] relative ">
+    <Link href="/cart"
+          className={`${styles.cart} w-[40px] relative justify-self-end`}
+    >
       <Image
         src="/images/cart-icon.svg"
         alt="Корзина"

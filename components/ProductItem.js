@@ -6,7 +6,7 @@ import RatingStars from "./RatingStars";
 import { useTranslation } from "next-i18next";
 
 export default function ProductItem({ product, index, addToCartHandler, locale }) {
-
+  console.log(index);
   const { t } = useTranslation( "common" );
 
    return (
@@ -45,6 +45,7 @@ export default function ProductItem({ product, index, addToCartHandler, locale }
         <ButtonAddToCart
           action={ addToCartHandler }
           product={ product }
+          index={index}
           text={ t( "button" ) }
         />
       </div>

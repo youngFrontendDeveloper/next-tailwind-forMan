@@ -1,6 +1,6 @@
 import ProductItem from "@/components/ProductItem";
 import { Store } from "@/utils/Store";
-import { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -13,9 +13,18 @@ import SocialNetwork from "@/components/SocialNetwork";
 
 
 export default function Home({ products, featuredProducts, locale }) {
+  const [ width, setWidth ] = useState( 0 );
   const { state, dispatch } = useContext( Store );
   const { cart } = state;
   const { t } = useTranslation( "common" );
+
+  const handleResize = () => setWidth( window.innerWidth );
+
+  useEffect( () => {
+    handleResize();
+    window.addEventListener( "resize", handleResize );
+    return () => window.removeEventListener( "resize", handleResize );
+  }, [] );
 
   const addToCartHandler = async(product) => {
     const existItem = cart.cartItems.find( (item) => item.slug === product.slug );
@@ -33,7 +42,7 @@ export default function Home({ products, featuredProducts, locale }) {
         quantity,
       },
     } );
-    toast.success( "Корзина обновлена" );
+    toast.success( t( "cartUpdated" ) );
   };
 
   return (
@@ -50,10 +59,14 @@ export default function Home({ products, featuredProducts, locale }) {
             // Товары для мужчин
           }
         </h2>
-        <p><a href="/price.docx" download className="text-sm italic">Скачать прайс формате .doc (14 kb)</a></p>
-        <p><a href="/price.xlsx" download className="text-sm italic">Скачать прайс формате .exel (34kb)</a></p>
-        <p className="mb-3"><a href="/price.pdf" download className="text-sm italic">Скачать прайс формате .pdf
-          (39kb)</a></p>
+        { width > 1024 &&
+          <div>
+            <p><a href="/price.docx" download className="text-sm italic">Скачать прайс в формате .doc (14 kb)</a></p>
+            <p><a href="/price.xlsx" download className="text-sm italic">Скачать прайс в формате .exel (34kb)</a></p>
+            <p className="mb-3"><a href="/price.pdf" download className="text-sm italic">Скачать прайс в формате .pdf
+              (39kb)</a></p>
+          </div>
+        }
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4">
           { products.map( (product, index) => (
             <ProductItem

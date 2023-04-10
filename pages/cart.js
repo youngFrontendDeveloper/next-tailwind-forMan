@@ -12,14 +12,15 @@ import ButtonAddToCart from "@/components/ButtonAddToCart";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-function CartScreen({ locale }) {
+function CartScreen({ locale, index }) {
   const router = useRouter();
   const { state, dispatch } = useContext( Store );
   const {
     cart: { cartItems },
   } = state;
-  const { t } = useTranslation( "cart" );
+  const { t } = useTranslation( [ "cart", ] );
 
+  console.log(index);
   const removeItemHandler = (item) => {
     dispatch( { type: "CART_REMOVE_ITEM", payload: item } );
     toast.success( t( "cartUpdated" ) );
@@ -42,24 +43,22 @@ function CartScreen({ locale }) {
       keywords="корзина покупок, покупки,"
     >
       <h1 className="mb-4 text-xl">{ t( "shoppingCart" ) }</h1>
+      <Link href="/" className="text-sm italic">
+        { t( "goShopping" ) }
+      </Link>
       { cartItems.length === 0 ? (
         <div>
           { t( "cartEmpty" ) }{ " " }
-          <Link href="/" className="text-sm italic">
-            { t( "goShopping" ) }
-          </Link>
+
         </div>
       ) : (
-        <div className="grid md:grid-cols-4 md:gap-5">
+        <div className="grid md:grid-cols-4 md:gap-3">
           <div className="overflow-x-auto md:col-span-3 mb-3">
-            <Link href="/" className="text-sm italic">
-              { t( "goShopping" ) }
-            </Link>
             <table className="min-w-full ">
               <thead className="border-b">
               <tr>
                 <th className="p-5 text-left text-sm md:text-lg">
-                  { t( "productName" ) }
+                  { t( `productName` ) }
                 </th>
                 <th className="p-5 text-right text-sm md:text-lg">
                   { t( "quantity" ) }
@@ -85,7 +84,10 @@ function CartScreen({ locale }) {
                         className="mr-5"
                       />
 
-                      <span className="text-sm md:text-lg">{ item.name }</span>
+                      <span className="text-sm md:text-lg">{
+                        // t( `productNames`, { returnObjects: true } )[index ]
+                        item.name
+                      }</span>
                     </Link>
                   </td>
                   <td className="p-5 text-right">
@@ -102,8 +104,16 @@ function CartScreen({ locale }) {
                       ) ) }
                     </select>
                   </td>
-                  <td className="p-5 text-right">{ item.price }</td>
-                  <td className="p-5 text-center">
+                  <td className="p-5 text-right">
+                    {
+                      locale === "en" ? "$" + ( item.price * 0.0132 ).toFixed( 2 ) :
+                        locale === "fr" ? "€" + ( item.price * 0.012365 ).toFixed( 2 ) :
+                          locale === "ja" ? "¥" + ( item.price * 1.78 ).toFixed( 2 ) :
+                            ( item.price ).toFixed( 2 ) + " руб."
+                      // item.price
+                    }
+                  </td>
+                  <td className="p-2 text-center">
                     <button onClick={ () => removeItemHandler( item ) }>
                       <XCircleIcon className="h-5 w-5" />
                     </button>
@@ -116,17 +126,18 @@ function CartScreen({ locale }) {
           <div className="card p-5">
             <ul>
               <li>
-                <div className="pb-3 text-xl">
-                  <span className="mr-3 font-[500]">{ t( "total" ) }</span>
+                <div className="pb-3 text-lg font-bold">
+                  <span className="mr-3 font-[500] text-[18px]">{ t( "total" ) }</span>
                   {/* {cartItems.reduce((a, c) => a + c.quantity, 0)} товара
-                  на сумму{' '} */ }
+                  на сумму{' '} */ } <p>
                   {
 
-                    locale === "en" ?  "$"  + cartItems.reduce( (a, c) => a + c.quantity * c.price * 0.0132, 0 ).toFixed(2) :
-                      locale === "fr" ? "€" + cartItems.reduce( (a, c) => a + c.quantity * c.price * 0.012365, 0 ).toFixed(2)  :
-                        locale === "ja" ? "¥" + cartItems.reduce( (a, c) => a + c.quantity * c.price * 1.78, 0 ).toFixed(2)  :
-                          cartItems.reduce( (a, c) => a + c.quantity * c.price, 0 ).toFixed(2) + " руб."
+                    locale === "en" ? "$" + cartItems.reduce( (a, c) => a + c.quantity * c.price * 0.0132, 0 ).toFixed( 2 ) :
+                      locale === "fr" ? "€" + cartItems.reduce( (a, c) => a + c.quantity * c.price * 0.012365, 0 ).toFixed( 2 )  :
+                        locale === "ja" ? "¥" + cartItems.reduce( (a, c) => a + c.quantity * c.price * 1.78, 0 ).toFixed( 2 )  :
+                          cartItems.reduce( (a, c) => a + c.quantity * c.price, 0 ).toFixed( 2 ) + " руб."
                   }
+                </p>
                 </div>
               </li>
               <li>
@@ -151,7 +162,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       locale,
-      ...( await serverSideTranslations( locale, [ "common", "footer", "product", "ProductScreen", "cart" ] ) ),
+      ...( await serverSideTranslations( locale, [ "common", "cart" , "footer", "product", "ProductScreen", ] ) ),
     }
   };
 }

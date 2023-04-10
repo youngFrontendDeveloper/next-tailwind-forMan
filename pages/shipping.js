@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import CheckoutWizard from '@/components/CheckoutWizard';
 import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
+import { Store } from '@/utils/Store';
 import { useRouter } from 'next/router';
 import Button from '@/components/Button';
 

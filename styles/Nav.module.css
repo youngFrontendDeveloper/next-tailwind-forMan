@@ -1,0 +1,29 @@
+.nav {
+  display: grid;
+  grid-template-areas: 'logo right-block' 'search search';
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4vw;
+  padding: 10px;
+}
+
+.right-block {
+  grid-area: right-block;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.search {
+  grid-area: search;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    grid-template-areas: "logo search right-block";
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr auto;
+  }
+}
