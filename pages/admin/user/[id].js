@@ -38,7 +38,7 @@ const reducer = async (state, action) => {
 export default function AdminUserEditScreen() {
   const { query } = useRouter();
   const userId = query.id;
-  const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
+  const [{ loading, error, loadingUpdate, }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',

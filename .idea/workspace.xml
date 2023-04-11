@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="591b08c1-ee59-4556-a57c-ed65308db147" name="Changes" comment="Сделан перевод главных страниц на другие языки">
-      <change afterPath="$PROJECT_DIR$/components/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/Nav.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CartIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CartIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Locale.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Locale.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Logo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ProductItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ProductItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SearchForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SearchForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UserMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/user/[id].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/user/[id].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/tlg.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/tlg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/contacts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/product/[slug]/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product/[slug]/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/product/[slug]/writereview.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product/[slug]/writereview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/shipping.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/shipping.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +84,7 @@
       <workItem from="1679893815450" duration="6636000" />
       <workItem from="1681021592693" duration="704000" />
       <workItem from="1681022373681" duration="12005000" />
-      <workItem from="1681105589619" duration="15368000" />
+      <workItem from="1681105589619" duration="19270000" />
     </task>
     <servers />
   </component>

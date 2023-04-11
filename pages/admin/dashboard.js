@@ -4,15 +4,6 @@ import { Bar } from 'react-chartjs-2';
 import React, { useEffect, useReducer } from 'react';
 import Layout from '@/components/Layout';
 import { getError } from '@/utils/error';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js/auto';
 
 export const options = {
   responsive: true,

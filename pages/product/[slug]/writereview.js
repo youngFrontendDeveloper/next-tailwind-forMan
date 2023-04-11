@@ -31,7 +31,7 @@ export default function WritereviewScreen({ product }) {
       type: "PATH_SUCCESS",
       payload: pathOfPage,
     } );
-  }, [] );
+  }, [dispatch, pathOfPage] );
 
   useEffect( () => {
     let data = JSON.parse( localStorage.getItem( "review" ) );
